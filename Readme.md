@@ -103,3 +103,8 @@ Refer to the specific course or assignment page on Canvas for detailed informati
 ## Books
 
 * Introduction to Programming with C++, 3rd Edition by Daniel Liang
+
+## Credits
+
+* [Luna Maltseva](https://github.com/lunamaltseva)
+

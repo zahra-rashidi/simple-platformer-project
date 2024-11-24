@@ -9,9 +9,7 @@ The game should adhere to the best structured and procedural programming princip
 
 Be creative, and ensure to implement the following essential elements in your project, as outlined below.
 
-## Course Project
-
-### Required Game Elements:
+## Core Requirements
 
 * Title or Menu Screen: The game should start with a title screen featuring a game logo and a message to start the game. Alternatively, it could be a menu screen with options to start the game, view the instructions, or quit the game.
 
@@ -30,7 +28,7 @@ Be creative, and ensure to implement the following essential elements in your pr
 
 ![Victory Screen](https://i.imgur.com/8X6809A.png)
 
-### Required Game Elements:
+## Feature Requirements
 
 * New Levels: Add at least *four extra levels* to the game. These levels should be more challenging than the one given. You can add more levels if you want.
 
@@ -44,7 +42,7 @@ Be creative, and ensure to implement the following essential elements in your pr
 
 * New Mechanics: Introduce at least one new gameplay mechanic. This could be a novel way to collect items, move the character, or interact with the level. Let your creativity guide you.
 
-## Additional Requirements:
+## Additional Requirements
 
 * Develop the code independently and maintain a detailed project commit history. Be aware that points will be withheld for any suspicion of code plagiarism, even if it's unfounded. Additionally, consistent progress must be evident in your project commit history to receive any points at all.
 

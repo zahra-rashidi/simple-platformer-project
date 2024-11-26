@@ -79,11 +79,29 @@ Upon completion, your Project directory should have an organized structure simil
     └── Readme.md
 ```
 
-Commit and push your work at regular intervals, such as daily or after significant changes. Finally, submit the URL of the last commit to Canvas before the deadline.
+Commit and push your work at regular intervals, such as daily or after significant changes. Finally, submit the URL of the last commit to Moodle before the deadline.
+
+## Project Setup Notes
+
+Set up the raylib project as you have done in previous labs for graphics assignments.
+
+Before attempting to run the code for the `platformer` target, please ensure that you set the `Working directory` correctly in your CLion IDE.
+
+The current working directory must point to the directory containing the necessary resource files (e.g., `data/images`, `data/fonts`, and `data/sound|music`). Failure to do so will result in these resources not being loaded properly, and you will not see or hear the intended visuals or sounds in the game.
+
+To set the working directory:
+
+1. Open the `Run` menu and find the `Edit configurations` button there in CLion.
+2. Select the `platformer` target.
+3. Locate the `Working directory` field.
+4. Set it to the `$ProjectFileDir$` value (this ensures it points to the root project directory with the `data` folder).
+5. Save your configuration and run the target again.
+
+If you encounter any issues, double-check that the paths to the resource files are correct relative to the working directory.
 
 ## Deadline
 
-Refer to the specific course or assignment page on Canvas for detailed information about deadlines.
+Refer to the specific course or assignment page on Moodle for detailed information about deadlines.
 
 ## Links
 

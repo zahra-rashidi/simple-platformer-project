@@ -37,11 +37,27 @@ level LEVEL_1 = {
     LEVEL_1_DATA
 };
 
+char LEVEL_2_DATA[] = {
+    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',
+    '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', '@', ' ', ' ', '#', ' ', ' ', 'E', ' ', '#',
+    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'
+};
+
+level LEVEL_2 = {
+    7, 11,
+    LEVEL_2_DATA
+};
+
 int level_index = 0;
-const int LEVEL_COUNT = 1;
+const int LEVEL_COUNT = 2;
 
 level LEVELS[LEVEL_COUNT] = {
-    LEVEL_1
+    LEVEL_1,
+    LEVEL_2
 };
 
 /* Loaded Level Data */
@@ -163,10 +179,12 @@ size_t game_frame = 0;
 /* Game States */
 
 enum game_state {
-    GAME_STATE
-    // TODO
+    MENU_STATE,
+    GAME_STATE,
+    VICTORY_STATE
+
 };
-game_state game_state = GAME_STATE;
+game_state game_state = MENU_STATE;
 
 /* Forward Declarations */
 

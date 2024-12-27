@@ -204,30 +204,28 @@ float cell_size;
 Vector2 shift_to_center;
 
 /* Fonts */
-
 Font menu_font;
 
 /* Display Text Parameters */
-
 struct Text {
     std::string str;
-    Vector2 position = { 0.50f, 0.50f };
+    Vector2 position = {0.50f, 0.50f};
     float size = 32.0f;
     Color color = WHITE;
     float spacing = 4.0f;
-    Font* font = &menu_font;
+    Font *font = &menu_font;
 };
 
 Text game_title = {
     "Platformer",
-    { 0.50f, 0.50f },
+    {0.50f, 0.50f},
     100.0f,
     RED
 };
 
 Text game_subtitle = {
     "Press Enter to Start",
-    { 0.50f, 0.65f }
+    {0.50f, 0.65f}
 };
 
 Text game_paused = {
@@ -235,19 +233,18 @@ Text game_paused = {
 };
 
 Text victory_title = {
-    "You Won!",
-    { 0.50f, 0.50f },
+    " Bravo You Won!",
+    {0.50f, 0.50f},
     100.0f,
     RED
 };
 
 Text victory_subtitle = {
     "Press Enter to go back to menu",
-    { 0.50f, 0.65f }
+    {0.50f, 0.65f}
 };
 
 /* Images and Sprites */
-
 Texture2D wall_image;
 Texture2D air_image;
 Texture2D exit_image;
@@ -257,10 +254,10 @@ Texture2D enemy_2_image;
 Texture2D flower_image;
 
 struct sprite {
-    size_t frame_count    = 0;
+    size_t frame_count = 0;
     size_t frames_to_skip = 3;
     size_t frames_skipped = 0;
-    size_t frame_index    = 0;
+    size_t frame_index = 0;
     bool loop = true;
     size_t prev_game_frame = 0;
     Texture2D *frames = nullptr;
@@ -270,7 +267,6 @@ sprite coin_sprite;
 sprite player_sprite;
 
 /* Sounds */
-
 Sound coin_sound;
 Sound exit_sound;
 Sound gem_sound;
@@ -279,39 +275,35 @@ Sound enemy_2_sound;
 Sound flower_sound;
 
 /* Victory Menu Background */
-
 struct victory_ball {
     float x, y;
     float dx, dy;
     float radius;
 };
 
-const size_t VICTORY_BALL_COUNT     = 2000;
-const float VICTORY_BALL_MAX_SPEED  = 2.0f;
+const size_t VICTORY_BALL_COUNT = 2000;
+const float VICTORY_BALL_MAX_SPEED = 2.0f;
 const float VICTORY_BALL_MIN_RADIUS = 2.0f;
 const float VICTORY_BALL_MAX_RADIUS = 3.0f;
-const Color VICTORY_BALL_COLOR      = { 180, 180, 180, 255 };
+const Color VICTORY_BALL_COLOR = {180, 180, 180, 255};
 const unsigned char VICTORY_BALL_TRAIL_TRANSPARENCY = 10;
 victory_ball victory_balls[VICTORY_BALL_COUNT];
 
 /* Frame Counter */
-
 size_t game_frame = 0;
 
 /* Game States */
-
 enum game_state {
     MENU_STATE,
     GAME_STATE,
+    PAUSE_STATE,
+    GAME_OVER_STATE,
     VICTORY_STATE
-
 };
 game_state game_state = MENU_STATE;
 
 /* Forward Declarations */
-
 // GRAPHICS_H
-
 void draw_text(Text &text);
 void derive_graphics_metrics_from_loaded_level();
 void draw_menu();
@@ -325,21 +317,18 @@ void draw_victory_menu_background();
 void draw_victory_menu();
 
 // LEVEL_H
-
 bool is_colliding(Vector2 pos, char look_for = '#', level &level = current_level);
-char& get_collider(Vector2 pos, char look_for, level &level = current_level);
+char &get_collider(Vector2 pos, char look_for, level &level = current_level);
 
 void load_level(int offset = 0);
 void unload_level();
 
 // PLAYER_H
-
 void spawn_player();
 void move_player_horizontally(float delta);
 void update_player();
 
 // ASSETS_H
-
 void load_fonts();
 void unload_fonts();
 
@@ -354,8 +343,7 @@ sprite load_sprite(
     const std::string &file_name_suffix,
     size_t frame_count = 1,
     bool loop = true,
-    size_t frames_to_skip = 3
-);
+    size_t frames_to_skip = 3);
 void unload_sprite(sprite &sprite);
 void draw_sprite(sprite &sprite, Vector2 pos, float width, float height);
 void draw_sprite(sprite &sprite, Vector2 pos, float size);
@@ -364,7 +352,6 @@ void load_sounds();
 void unload_sounds();
 
 // UTILITIES_H
-
 float rand_from_to(float from, float to);
 float rand_up_to(float to);
 

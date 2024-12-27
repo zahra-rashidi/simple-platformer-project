@@ -14,7 +14,7 @@ void draw_text(Text &text) {
 }
 
 void derive_graphics_metrics_from_loaded_level() {
-    screen_size.x  = static_cast<float>(GetScreenWidth());
+    screen_size.x = static_cast<float>(GetScreenWidth());
     screen_size.y = static_cast<float>(GetScreenHeight());
 
     cell_size = std::min(
@@ -25,8 +25,8 @@ void derive_graphics_metrics_from_loaded_level() {
         screen_size.x,
         screen_size.y
     ) / SCREEN_SCALE_DIVISOR;
-    float level_width  = static_cast<float>(current_level.columns) * cell_size;
-    float level_height = static_cast<float>(current_level.rows)    * cell_size;
+    float level_width = static_cast<float>(current_level.columns) * cell_size;
+    float level_height = static_cast<float>(current_level.rows) * cell_size;
     shift_to_center.x = (screen_size.x - level_width) * 0.5f;
     shift_to_center.y = (screen_size.y - level_height) * 0.5f;
 }
@@ -39,12 +39,12 @@ void draw_menu() {
 void draw_game_overlay() {
     Text score = {
         "Score " + std::to_string(player_score),
-        { 0.50f, 0.05f },
+        {0.50f, 0.05f},
         48.0f
     };
     Text score_shadow = {
         "Score " + std::to_string(player_score),
-        { 0.503f, 0.055f },
+        {0.503f, 0.055f},
         48.0f,
         GRAY
     };
@@ -56,10 +56,9 @@ void draw_game_overlay() {
 void draw_level() {
     for (size_t row = 0; row < current_level.rows; ++row) {
         for (size_t column = 0; column < current_level.columns; ++column) {
-
             Vector2 pos = {
-                    shift_to_center.x + static_cast<float>(column) * cell_size,
-                    shift_to_center.y + static_cast<float>(row) * cell_size
+                shift_to_center.x + static_cast<float>(column) * cell_size,
+                shift_to_center.y + static_cast<float>(row) * cell_size
             };
 
             char cell = current_level.data[row * current_level.columns + column];
@@ -86,16 +85,16 @@ void draw_level() {
                     break;
                 case GEM:
                     draw_image(gem_image, pos, cell_size);
-                break;
+                    break;
                 case ENEMY:
                     draw_image(enemy_image, pos, cell_size);
-                break;
+                    break;
                 case ENEMY_2:
                     draw_image(enemy_2_image, pos, cell_size);
-                break;
+                    break;
                 case FLOWER:
                     draw_image(flower_image, pos, cell_size);
-                break;
+                    break;
                 case EXIT:
                     draw_image(exit_image, pos, cell_size);
                     break;
@@ -118,13 +117,16 @@ void draw_player() {
 }
 
 void draw_pause_menu() {
-    draw_text(game_paused);
+    Text pause_title = {"Game Paused", {0.50f, 0.40f}, 80.0f, WHITE};
+    Text pause_subtitle = {"Press SPACE to Resume", {0.50f, 0.55f}, 40.0f, RED};
+    draw_text(pause_title);
+    draw_text(pause_subtitle);
 }
 
 void create_victory_menu_background() {
     for (auto &ball : victory_balls) {
-        ball.x  = rand_up_to(screen_size.x);
-        ball.y  = rand_up_to(screen_size.y);
+        ball.x = rand_up_to(screen_size.x);
+        ball.y = rand_up_to(screen_size.y);
         ball.dx = rand_from_to(-VICTORY_BALL_MAX_SPEED, VICTORY_BALL_MAX_SPEED);
         ball.dx *= screen_scale;
         if (abs(ball.dx) < 0E-1) ball.dx = 1.0f;
@@ -161,7 +163,7 @@ void animate_victory_menu_background() {
 
 void draw_victory_menu_background() {
     for (auto &ball : victory_balls) {
-        DrawCircleV({ ball.x, ball.y }, ball.radius, VICTORY_BALL_COLOR);
+        DrawCircleV({ball.x, ball.y}, ball.radius, VICTORY_BALL_COLOR);
     }
 }
 
@@ -169,7 +171,7 @@ void draw_victory_menu() {
     DrawRectangle(
         0, 0,
         static_cast<int>(screen_size.x), static_cast<int>(screen_size.y),
-        { 0, 0, 0, VICTORY_BALL_TRAIL_TRANSPARENCY }
+        {0, 0, 0, VICTORY_BALL_TRAIL_TRANSPARENCY}
     );
 
     animate_victory_menu_background();
@@ -179,4 +181,4 @@ void draw_victory_menu() {
     draw_text(victory_subtitle);
 }
 
-#endif // GRAPHICS_H
+#endif // GRAPHICS_

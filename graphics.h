@@ -68,6 +68,7 @@ void draw_level() {
                 case AIR:
                 case PLAYER:
                 case COIN:
+                case GEM:
                 case EXIT:
                     draw_image(air_image, pos, cell_size);
                     break;
@@ -80,6 +81,9 @@ void draw_level() {
                 case COIN:
                     draw_sprite(coin_sprite, pos, cell_size);
                     break;
+                case GEM:
+                    draw_image(gem_image, pos, cell_size);
+                break;
                 case EXIT:
                     draw_image(exit_image, pos, cell_size);
                     break;

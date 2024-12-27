@@ -13,7 +13,9 @@ const char WALL   = '#';
 const char AIR    = ' ';
 const char PLAYER = '@';
 const char COIN   = '*';
+const char GEM   = '+';
 const char EXIT   = 'E';
+
 
 /* Levels */
 
@@ -37,6 +39,7 @@ level LEVEL_1 = {
     LEVEL_1_DATA
 };
 
+
 char LEVEL_2_DATA[] = {
     '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',
     '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
@@ -51,13 +54,28 @@ level LEVEL_2 = {
     7, 11,
     LEVEL_2_DATA
 };
+char LEVEL_3_DATA[] = {
+    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',
+    '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', '+', '#',
+    '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', '#', '#', '#',
+    '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', '@', ' ', ' ', '#', ' ', ' ', 'E', ' ', '#',
+    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'
+};
+
+level LEVEL_3 = {
+    7, 11,
+    LEVEL_3_DATA
+};
 
 int level_index = 0;
-const int LEVEL_COUNT = 2;
+const int LEVEL_COUNT = 3;
 
 level LEVELS[LEVEL_COUNT] = {
     LEVEL_1,
-    LEVEL_2
+    LEVEL_2,
+    LEVEL_3
 };
 
 /* Loaded Level Data */
@@ -137,6 +155,7 @@ Text victory_subtitle = {
 Texture2D wall_image;
 Texture2D air_image;
 Texture2D exit_image;
+Texture2D gem_image;
 
 struct sprite {
     size_t frame_count    = 0;
@@ -155,6 +174,7 @@ sprite player_sprite;
 
 Sound coin_sound;
 Sound exit_sound;
+Sound gem_sound;
 
 /* Victory Menu Background */
 

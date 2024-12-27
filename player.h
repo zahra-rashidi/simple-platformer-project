@@ -35,30 +35,28 @@ void update_player() {
         player_pos.y = roundf(player_pos.y);
     }
 
-    if (is_colliding(player_pos, COIN)) {
-        get_collider(player_pos, COIN) = ' ';
-        player_score+=10;
-        PlaySound(coin_sound);
-    }
-    if (is_colliding(player_pos, GEM)) {
-        get_collider(player_pos, GEM) = ' ';
-        player_score+=100;
-        PlaySound(gem_sound);
-    }
     if (is_colliding(player_pos, ENEMY)) {
         get_collider(player_pos, ENEMY) = ' ';
-        player_score-=50;
-        PlaySound(gem_sound);
-    }
-    if (is_colliding(player_pos, ENEMY_2)) {
+        player_score -= 50;
+        if (player_score < 0) player_score = 0;
+        PlaySound(enemy_sound);
+    } else if (is_colliding(player_pos, ENEMY_2)) {
         get_collider(player_pos, ENEMY_2) = ' ';
-        player_score-=100;
+        player_score -= 100;
+        if (player_score < 0) player_score = 0;
+        PlaySound(enemy_2_sound);
+    } else if (is_colliding(player_pos, COIN)) {
+        get_collider(player_pos, COIN) = ' ';
+        player_score += 10;
+        PlaySound(coin_sound);
+    } else if (is_colliding(player_pos, GEM)) {
+        get_collider(player_pos, GEM) = ' ';
+        player_score += 100;
         PlaySound(gem_sound);
-    }
-    if (is_colliding(player_pos, FLOWER)) {
+    } else if (is_colliding(player_pos, FLOWER)) {
         get_collider(player_pos, FLOWER) = ' ';
-        player_score+=50;
-        PlaySound(gem_sound);
+        player_score += 50;
+        PlaySound(flower_sound);
     }
     if (is_colliding(player_pos, EXIT)) {
         load_level(1);

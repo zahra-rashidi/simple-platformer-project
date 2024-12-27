@@ -123,6 +123,13 @@ void draw_pause_menu() {
     draw_text(pause_subtitle);
 }
 
+void draw_game_over() {
+    Text game_over_title = {"Game Over", {0.50f, 0.40f}, 80.0f, RED};
+    Text game_over_subtitle = {"Press ENTER to Return to Menu", {0.50f, 0.55f}, 40.0f, GRAY};
+    draw_text(game_over_title);
+    draw_text(game_over_subtitle);
+}
+
 void create_victory_menu_background() {
     for (auto &ball : victory_balls) {
         ball.x = rand_up_to(screen_size.x);
@@ -181,4 +188,6 @@ void draw_victory_menu() {
     draw_text(victory_subtitle);
 }
 
-#endif // GRAPHICS_
+#endif // GRAPHICS_H
+
+

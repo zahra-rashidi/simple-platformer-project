@@ -33,8 +33,13 @@ void update_game() {
 
             // Jumping logic
             is_player_on_ground = is_colliding({player_pos.x, player_pos.y + 0.1f}, WALL);
-            if ((IsKeyDown(KEY_UP) || IsKeyDown(KEY_W) || IsKeyDown(KEY_W)) && is_player_on_ground) {
+            if ((IsKeyDown(KEY_UP) || IsKeyDown(KEY_W) || IsKeyDown(KEY_SPACE)) && is_player_on_ground) {
                 player_y_velocity = -JUMP_STRENGTH;
+            }
+
+            // Check for collisions with enemies
+            if (is_colliding(player_pos, ENEMY) || is_colliding(player_pos, ENEMY_2)) {
+                game_state = GAME_OVER_STATE; // Transition to Game Over Screen
             }
 
             update_player();
@@ -42,19 +47,19 @@ void update_game() {
 
         case PAUSE_STATE:
             if (IsKeyPressed(KEY_SPACE)) {
-                game_state = GAME_STATE; // Resume the game
+                game_state = GAME_STATE;
             }
             break;
 
         case GAME_OVER_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
-                game_state = MENU_STATE; // Return to the menu
+                game_state = MENU_STATE;
             }
             break;
 
         case VICTORY_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
-                game_state = MENU_STATE; // Return to the menu
+                game_state = MENU_STATE;
             }
             break;
     }
@@ -80,7 +85,7 @@ void draw_game() {
 
         case GAME_OVER_STATE:
             ClearBackground(BLACK);
-            draw_game_overlay();
+            draw_game_over();
             break;
 
         case VICTORY_STATE:
@@ -119,4 +124,5 @@ int main() {
 
     return 0;
 }
+
 

@@ -229,7 +229,21 @@ Text game_subtitle = {
 };
 
 Text game_paused = {
-    "Press Escape to Resume"
+    "Press Space to Resume"
+};
+
+Text game_over_title = {
+    "Game Over",
+    {0.50f, 0.50f},
+    100.0f,
+    RED
+};
+
+Text game_over_subtitle = {
+    "Press Enter to Return to Menu",
+    {0.50f, 0.65f},
+    40.0f,
+    GRAY
 };
 
 Text victory_title = {
@@ -315,6 +329,7 @@ void create_victory_menu_background();
 void animate_victory_menu_background();
 void draw_victory_menu_background();
 void draw_victory_menu();
+void draw_game_over();
 
 // LEVEL_H
 bool is_colliding(Vector2 pos, char look_for = '#', level &level = current_level);

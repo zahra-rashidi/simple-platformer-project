@@ -26,24 +26,23 @@ void move_player_horizontally(float delta) {
 }
 
 void update_player() {
+
     player_pos.y += player_y_velocity;
     player_y_velocity += GRAVITY_FORCE;
 
-    is_player_on_ground = is_colliding({ player_pos.x, player_pos.y + 0.1f }, WALL);
+
+    is_player_on_ground = is_colliding({player_pos.x, player_pos.y + 0.1f}, WALL);
     if (is_player_on_ground) {
         player_y_velocity = 0;
         player_pos.y = roundf(player_pos.y);
     }
 
+    // Interactions with game elements
     if (is_colliding(player_pos, ENEMY)) {
-        get_collider(player_pos, ENEMY) = ' ';
-        player_score -= 50;
-        if (player_score < 0) player_score = 0;
+        game_state = GAME_OVER_STATE;
         PlaySound(enemy_sound);
     } else if (is_colliding(player_pos, ENEMY_2)) {
-        get_collider(player_pos, ENEMY_2) = ' ';
-        player_score -= 100;
-        if (player_score < 0) player_score = 0;
+        game_state = GAME_OVER_STATE;
         PlaySound(enemy_2_sound);
     } else if (is_colliding(player_pos, COIN)) {
         get_collider(player_pos, COIN) = ' ';
@@ -58,6 +57,7 @@ void update_player() {
         player_score += 50;
         PlaySound(flower_sound);
     }
+
     if (is_colliding(player_pos, EXIT)) {
         load_level(1);
         PlaySound(exit_sound);
@@ -65,3 +65,5 @@ void update_player() {
 }
 
 #endif // PLAYER_H
+
+

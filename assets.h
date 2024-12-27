@@ -20,6 +20,9 @@ void load_images() {
     air_image     = LoadTexture("data/images/air.png");
     exit_image    = LoadTexture("data/images/exit.png");
     gem_image    = LoadTexture("data/images/gem.png");
+    enemy_image    = LoadTexture("data/images/enemy.png");
+    enemy_2_image    = LoadTexture("data/images/enemy_2.png");
+    flower_image    = LoadTexture("data/images/flower.png");
     coin_sprite   = load_sprite("data/images/coin/coin",     ".png", 3, true, 18);
     player_sprite = load_sprite("data/images/player/player", ".png", 3, true, 10);
 }
@@ -29,6 +32,9 @@ void unload_images() {
     UnloadTexture(air_image);
     UnloadTexture(exit_image);
     UnloadTexture(gem_image);
+    UnloadTexture(enemy_image);
+    UnloadTexture(enemy_2_image);
+    UnloadTexture(flower_image);
     unload_sprite(player_sprite);
     unload_sprite(coin_sprite);
 }
@@ -112,12 +118,19 @@ void load_sounds() {
     coin_sound = LoadSound("data/sounds/coin.wav");
     exit_sound = LoadSound("data/sounds/exit.wav");
     gem_sound = LoadSound("data/sounds/gem.wav");
+    enemy_sound = LoadSound("data/sounds/enemy.wav");
+    enemy_2_sound = LoadSound("data/sounds/enemy2.wav");
+    flower_sound = LoadSound("data/sounds/flower.wav");
+
 }
 
 void unload_sounds() {
     UnloadSound(coin_sound);
     UnloadSound(exit_sound);
     UnloadSound(gem_sound);
+    UnloadSound(enemy_sound);
+    UnloadSound(enemy_2_sound);
+    UnloadSound(flower_sound);
 }
 
 #endif // IMAGES_H

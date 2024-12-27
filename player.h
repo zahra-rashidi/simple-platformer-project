@@ -45,6 +45,21 @@ void update_player() {
         player_score+=100;
         PlaySound(gem_sound);
     }
+    if (is_colliding(player_pos, ENEMY)) {
+        get_collider(player_pos, ENEMY) = ' ';
+        player_score-=50;
+        PlaySound(gem_sound);
+    }
+    if (is_colliding(player_pos, ENEMY_2)) {
+        get_collider(player_pos, ENEMY_2) = ' ';
+        player_score-=100;
+        PlaySound(gem_sound);
+    }
+    if (is_colliding(player_pos, FLOWER)) {
+        get_collider(player_pos, FLOWER) = ' ';
+        player_score+=50;
+        PlaySound(gem_sound);
+    }
     if (is_colliding(player_pos, EXIT)) {
         load_level(1);
         PlaySound(exit_sound);

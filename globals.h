@@ -14,6 +14,9 @@ const char AIR    = ' ';
 const char PLAYER = '@';
 const char COIN   = '*';
 const char GEM   = '+';
+const char ENEMY   = '!';
+const char ENEMY_2   = '$';
+const char FLOWER  = '&';
 const char EXIT   = 'E';
 
 
@@ -156,6 +159,9 @@ Texture2D wall_image;
 Texture2D air_image;
 Texture2D exit_image;
 Texture2D gem_image;
+Texture2D enemy_image;
+Texture2D enemy_2_image;
+Texture2D flower_image;
 
 struct sprite {
     size_t frame_count    = 0;
@@ -175,6 +181,9 @@ sprite player_sprite;
 Sound coin_sound;
 Sound exit_sound;
 Sound gem_sound;
+Sound enemy_sound;
+Sound enemy_2_sound;
+Sound flower_sound;
 
 /* Victory Menu Background */
 

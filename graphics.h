@@ -69,6 +69,9 @@ void draw_level() {
                 case PLAYER:
                 case COIN:
                 case GEM:
+                case ENEMY:
+                case ENEMY_2:
+                case FLOWER:
                 case EXIT:
                     draw_image(air_image, pos, cell_size);
                     break;
@@ -83,6 +86,15 @@ void draw_level() {
                     break;
                 case GEM:
                     draw_image(gem_image, pos, cell_size);
+                break;
+                case ENEMY:
+                    draw_image(enemy_image, pos, cell_size);
+                break;
+                case ENEMY_2:
+                    draw_image(enemy_2_image, pos, cell_size);
+                break;
+                case FLOWER:
+                    draw_image(flower_image, pos, cell_size);
                 break;
                 case EXIT:
                     draw_image(exit_image, pos, cell_size);
